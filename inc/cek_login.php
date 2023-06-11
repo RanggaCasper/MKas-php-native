@@ -9,6 +9,7 @@ $data = mysqli_fetch_array($query);
 if($cek > 0){
 	if ($data['role']=='admin') {
 		$_SESSION['username'] = $data['username'];
+		$_SESSION['nim'] = $data['nim'];
 		$_SESSION['id_user'] = $data['id_user'];
 		$_SESSION['role'] = $data['role'];
 		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
@@ -18,6 +19,7 @@ if($cek > 0){
 		header("Location: ../admin/");
 	}else if ($data['role']=='bendahara') {
 		$_SESSION['username'] = $data['username'];
+		$_SESSION['nim'] = $data['nim'];
 		$_SESSION['id_user'] = $data['id_user'];
 		$_SESSION['role'] = $data['role'];
 		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
@@ -27,6 +29,7 @@ if($cek > 0){
 		header("Location: ../bendahara/");
 	}else{
 		$_SESSION['username'] = $data['username'];
+		$_SESSION['nim'] = $data['nim'];
 		$_SESSION['id_user'] = $data['id_user'];
 		$_SESSION['role'] = $data['role'];
 		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">

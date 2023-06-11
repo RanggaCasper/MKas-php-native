@@ -11,15 +11,18 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo thisSite(); ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
           <?php 
           $id_user = $_SESSION['id_user'];
           $queryUsername = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$id_user'");
           $dataUsername = mysqli_fetch_array($queryUsername);
+          $fileGambar = $dataUsername['gambar'];
           $username = $dataUsername['username'];
           ?>
+          <div class="img-circle-sidebar">
+            <img src="<?php echo thisSite(); ?>profile/<?php echo $fileGambar; ?>" class="elevation-2" alt="User Image">
+          </div>
+        </div>
+        <div class="info">
           <a href="<?php echo thisSite().$_SESSION['role']."/profile"; ?>" class="d-block" style="text-transform: capitalize;"><?php echo $username; ?></a>
         </div>
       </div>

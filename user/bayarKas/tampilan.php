@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Pembayaran Kas</h1>
+          <h1 class="m-0">Bayar Kas</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -30,10 +30,10 @@
   <section class="content">
   	<div class="container-fluid">
   	  <div class="row">
-  	  	<div class="col-sm-12 col-lg-8 mb-3">
-  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-pembayaran"><i class="fa-solid fa-sack-dollar"></i> Tambah Pembayaran</button>
+  	  	<div class="col-8 mb-3">
+  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-pembayaran"><i class="fa-solid fa-sack-dollar"></i> Bayar Kas</button>
   	  	</div>
-  	  	<div class="col-sm-12 col-lg-4 mb-3">
+  	  	<div class="col-4 mb-3">
   	  		<form method="POST">
 	  	  		<div class="d-flex">
 	  	  			<div class="input-group-prepend">
@@ -64,7 +64,6 @@
 		              <thead>
 		              <tr>
 		                <th>ID</th>
-		                <th>NIM</th>
 		                <th>Jumlah Pembayaran</th>
 		                <th>Time</th>
 		                <th>Jenis Pembayaran</th>
@@ -75,19 +74,21 @@
 		              <tbody>
 		              	<?php
 		              	if ($_POST) {
+		              		$nim = $_SESSION['nim'];
 		              		$dateRange = $_POST['daterange'];
 											$date_parts = explode(" - ", $dateRange);
 											$start_date = date("Y-m-d H:i:s", strtotime($date_parts[0]));
 											$end_date = date("Y-m-d H:i:s", strtotime($date_parts[1]));
-		              		$queryViewPembayaran = mysqli_query($conn, "SELECT * FROM history_pembayaran WHERE time >= '$start_date' AND time <= '$end_date'");
+		              		$queryViewPembayaran = mysqli_query($conn, "SELECT * FROM history_pembayaran WHERE nim = '$nim' AND time >= '$start_date' AND time <= '$end_date'");
 		              	}else{
-		              		$queryViewPembayaran = mysqli_query($conn, "SELECT * FROM history_pembayaran");
+		              		$nim = $_SESSION['nim'];
+		              		$queryViewPembayaran = mysqli_query($conn, "SELECT * FROM history_pembayaran WHERE nim = '$nim'");
 		              	}
 		              	while ($dataViewPembayaran = mysqli_fetch_array($queryViewPembayaran)) {
 		              	?>
 		              	<tr>
 		              		<td><?php echo $dataViewPembayaran['id_kas']; ?></td>
-		              		<td><?php echo $dataViewPembayaran['nim']; ?></td>
+
 		              		<td>Rp. <?php echo number_format($dataViewPembayaran['jumlah_pembayaran']); ?></td>
 		              		<td><?php echo $dataViewPembayaran['time']; ?></td>
 		              		<td><?php
@@ -112,7 +113,7 @@
 		              					<?php
 		              				}else{
 		              					?>
-		              					<span class="text-white badge bg-warning p-2" style="padding: 4px;"><?php echo $dataViewPembayaran['status']; ?></span>
+		              					<span class="badge bg-warning p-2" style="padding: 4px;"><?php echo $dataViewPembayaran['status']; ?></span>
 		              					<?php
 		              				}
 		              		?></td>
@@ -142,25 +143,23 @@
 	      </button>
 	    </div>
 	    <div class="modal-body">
-	      <form action="tambah.php" method="POST">
-	          <div class="form-group">
-	            <label for="exampleInputEmail1">NIM</label>
-	            <select name="nim" class="custom-select form-control-border" id="exampleSelectBorder">
-	            	<?php 
-	            	$queryNim = mysqli_query($conn,"SELECT * FROM user WHERE role = 'user'");
-	            	while ($dataNim = mysqli_fetch_array($queryNim)) {
-	            	?>
-								<option value="<?php echo $dataNim['nim']; ?>"><?php echo $dataNim['nim'] ." - ". $dataNim['username']; ?></option>
-								<?php } ?>
-							</select>
-	          </div>
+	      <form action="tambah.php" method="POST" enctype="multipart/form-data">
 	          <div class="form-group">
 	            <label for="exampleInputPassword1">Jumlah Pembayaran</label>
 	            <input name="jumlah_pembayaran" type="text" class="form-control" id="exampleInputPassword1" required>
 	          </div>
+	          <div class="form-group">
+							<label for="exampleInputFile">Bukti Transfer</label>
+							<div class="input-group">
+								<div class="custom-file">
+									<input name="bukti" type="file" class="custom-file-input" id="exampleInputFile">
+									<label class="custom-file-label" for="exampleInputFile">Choose file</label>
+								</div>	
+							</div>
+						</div>
 	          <div class="d-flex justify-content-between">
 			    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			    		<button type="submit" class="btn btn-primary">Submit</button>
+			    		<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 			  		</div>
 		  	</form>
 	    </div>

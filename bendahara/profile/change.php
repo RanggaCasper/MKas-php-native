@@ -43,12 +43,22 @@
 			    <h5 class="widget-user-desc" style="text-transform: capitalize;"><?php echo $dataProfile['nim']; ?></h5>
 			  </div>
 			  <div class="widget-user-image">
-			    <img class="img-circle elevation-2" src="../../dist/img/user1-128x128.jpg" alt="User Avatar">
+			  	<div class="img-circle-profile">
+			  		<img src="<?php echo thisSite(); ?>profile/<?php echo $dataProfile['gambar']; ?>" alt="User Image">
+			  	</div>
 			  </div>
 			  <div class="card-footer">
 				<div class="col-12">
-				<form action="update.php" method="POST">
-				  <input name="id_user" type="number" value="<?php echo $dataProfile['id_user']; ?>" hidden>
+				<form action="update.php" method="POST" enctype="multipart/form-data">
+				  		<div class="form-group">
+								<label for="exampleInputFile">Ganti Gambar</label>
+								<div class="input-group">
+									<div class="custom-file">
+										<input name="profile" type="file" class="custom-file-input" id="exampleInputFile">
+										<label class="custom-file-label" for="exampleInputFile">Choose file</label>
+									</div>	
+								</div>
+							</div>
 		          <div class="form-group">
 		            <label for="exampleInputEmail1">Username</label>
 		            <input name="username" type="text" class="form-control" value="<?php echo $dataProfile['username']; ?>" id="exampleInputEmail1" required>

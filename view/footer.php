@@ -48,11 +48,21 @@
 <script src="<?php echo thisSite(); ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo thisSite(); ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo thisSite(); ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?php echo thisSite(); ?>plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo thisSite(); ?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": true, "autoWidth": false,
     });
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm'
+      }
+    });
+    bsCustomFileInput.init();
   });
 </script>
 </body>

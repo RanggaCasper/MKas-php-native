@@ -82,7 +82,10 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>65</h3>
+              <h3><?php
+              $queryPending = mysqli_query($conn, "SELECT * FROM history_pembayaran WHERE status='Pending'");
+              echo mysqli_num_rows($queryPending);
+              ?></h3>
 
               <p>Transfer Pending</p>
             </div>

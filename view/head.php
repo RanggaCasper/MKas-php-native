@@ -18,7 +18,7 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo thisSite(); ?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo thisSite(); ?>dist/css/adminlte.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/daterangepicker/daterangepicker.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

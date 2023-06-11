@@ -42,7 +42,9 @@
 			    <h5 class="widget-user-desc" style="text-transform: capitalize;"><?php echo $dataProfile['nim']; ?></h5>
 			  </div>
 			  <div class="widget-user-image">
-			    <img class="img-circle elevation-2" src="../../dist/img/user1-128x128.jpg" alt="User Avatar">
+			  	<div class="img-circle-profile">
+			  		<img src="<?php echo thisSite(); ?>profile/<?php echo $dataProfile['gambar']; ?>" alt="User Image">
+			  	</div>
 			  </div>
 			  <div class="card-footer">
 				<div class="col-12">

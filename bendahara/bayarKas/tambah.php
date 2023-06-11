@@ -3,7 +3,7 @@ if ($_POST) {
 	require_once "../../inc/config.php";
 	$nim = $_POST['nim'];
 	$jumlah_pembayaran = $_POST['jumlah_pembayaran'];
-	$data = mysqli_query($conn,"INSERT INTO history_pembayaran (nim, jumlah_pembayaran, jenis_pembayaran, bukti_pembayaran) VALUES ('$nim','$jumlah_pembayaran','Tunai','langsung.jpg')");
+	$data = mysqli_query($conn,"INSERT INTO history_pembayaran (nim, jumlah_pembayaran, jenis_pembayaran, status, bukti_pembayaran) VALUES ('$nim','$jumlah_pembayaran','Tunai','Success','langsung.jpg')");
 	if ($data) {
 		session_start();
 		$queryKas = mysqli_query($conn,"SELECT * FROM uang_kas WHERE id_kas = '1'");
@@ -12,7 +12,7 @@ if ($_POST) {
 		mysqli_query($conn,"UPDATE uang_kas SET kas_sekarang='$kas' WHERE id_kas = '1'");
 		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<i class="fa-regular fa-circle-check"></i></i> Pembayaran berhasil ditambahkan. '.$kas.' 
+		<i class="fa-regular fa-circle-check"></i></i> Pembayaran berhasil ditambahkan.
 		</div>';
 		header("Location: ./");
 	}else{
