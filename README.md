@@ -8,8 +8,8 @@ Need PHP Version 7.4.22
 
 # Admin
 - CRUD User
-- CRUD Pembayaran (Proses)
-- CRUD Pengeluaran (Proses)
+- RUD Pembayaran (Proses)
+- RUD Pengeluaran (Proses)
 - Website Management (Proses)
 - Change Profile
 
