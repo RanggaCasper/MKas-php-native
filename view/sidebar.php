@@ -58,7 +58,7 @@
               </p>
             </a>
           </li>
-          <?php $querySubMenu++; } ?>
+          <?php $subMenu++; } ?>
           <?php $menu++; } ?>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
@@ -75,6 +75,23 @@
           </li>
         </ul>
       </nav>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var menuItems = document.querySelectorAll(".nav-item");
+          var currentURL = window.location.href;
+
+          menuItems.forEach(function(item) {
+            var link = item.querySelector(".nav-link");
+            var href = link.getAttribute("href");
+
+            if (currentURL.includes(href)) {
+              item.classList.add("active");
+            }
+          });
+        });
+      </script>
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
