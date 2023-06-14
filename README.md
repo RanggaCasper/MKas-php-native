@@ -1,12 +1,15 @@
 # System Requiment
 Need PHP Version 7.4.22
 
+# Demo
+- https://mkas.casperproject.masuk.id/
+
 # Feature MKas
 
 # Admin
 - CRUD User
-- CRUD Pembayaran (Proses)
-- CRUD Pengeluaran (Proses)
+- RUD Pembayaran (Proses)
+- RUD Pengeluaran (Proses)
 - Website Management (Proses)
 - Change Profile
 
