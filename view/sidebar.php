@@ -22,8 +22,19 @@
             <img src="<?php echo thisSite(); ?>profile/<?php echo $fileGambar; ?>" class="elevation-2" alt="User Image">
           </div>
         </div>
-        <div class="info">
-          <a href="<?php echo thisSite().$_SESSION['role']."/profile"; ?>" class="d-block" style="text-transform: capitalize;"><?php echo $username; ?></a>
+        <div class="info d-flex align-items-center">
+          <a href="<?php echo thisSite().$_SESSION['role']."/profile"; ?>" style="text-transform: capitalize;"><?php echo $username; ?></a>
+        </div>
+      </div>
+
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -75,23 +86,6 @@
           </li>
         </ul>
       </nav>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          var menuItems = document.querySelectorAll(".nav-item");
-          var currentURL = window.location.href;
-
-          menuItems.forEach(function(item) {
-            var link = item.querySelector(".nav-link");
-            var href = link.getAttribute("href");
-
-            if (currentURL.includes(href)) {
-              item.classList.add("active");
-            }
-          });
-        });
-      </script>
-
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

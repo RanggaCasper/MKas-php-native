@@ -70,6 +70,7 @@
 		                <th>Jenis Pembayaran</th>
 		                <th>Status Pembayaran</th>
 		                <th>Bukti Pembayaran</th>
+		                <th>Action</th>
 		              </tr>
 		              </thead>
 		              <tbody>
@@ -112,11 +113,21 @@
 		              					<?php
 		              				}else{
 		              					?>
-		              					<span class="text-white badge bg-warning p-2" style="padding: 4px;"><?php echo $dataViewPembayaran['status']; ?></span>
+		              					<span class="badge bg-warning p-2" style="padding: 4px;"><?php echo $dataViewPembayaran['status']; ?></span>
 		              					<?php
 		              				}
 		              		?></td>
 		              		<td><span class="badge bg-primary p-2" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
+		              		<td>
+		              			<?php 
+		              			if ($dataViewPembayaran['status']=='Pending') {
+		              				?>
+		              				<a href="konfirmasi.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" class="badge bg-primary p-2" style="padding: 4px;">Konfirmasi</a>
+		              				<a href="batalkan.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" class="badge bg-danger p-2" style="padding: 4px;">Batalkan</a>
+		              				<?php
+		              			}
+		              			?>
+		              		</td>
 		              	</tr>
 		              	<?php } ?>
 		              </tbody>
