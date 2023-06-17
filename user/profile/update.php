@@ -80,7 +80,7 @@ if ($_POST) {
 				</div>';
 				header("Location: ./");
 			}else{
-				if ($_FILES["profile"]["size"] > 500000) {
+				if ($_FILES["profile"]["size"] > 625000) {
 				  	session_start();
 					$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

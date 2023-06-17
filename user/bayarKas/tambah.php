@@ -5,7 +5,8 @@ if ($_POST) {
 	$target_dir = "../../bukti_pembayaran/"; 
 	$target_file = $target_dir . basename($_FILES["bukti"]["name"]); 
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
+	$newName = uniqid().".".$imageFileType;
+	$target_path = $target_dir . $newName;
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
 		session_start();
 		$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
@@ -14,7 +15,7 @@ if ($_POST) {
 		</div>';
 		header("Location: ./");
 	}else{
-		if (file_exists($target_file)) {
+		if (file_exists($target_path)) {
 			session_start();
 			$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -22,7 +23,7 @@ if ($_POST) {
 			</div>';
 			header("Location: ./");
 		}else{
-			if ($_FILES["bukti"]["size"] > 500000) {
+			if ($_FILES["bukti"]["size"] > 625000) {
 			  	session_start();
 				$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -30,8 +31,8 @@ if ($_POST) {
 				</div>';
 				header("Location: ./");
 			}else{
-				if (move_uploaded_file($_FILES["bukti"]["tmp_name"], $target_file)) {
-					$fileBukti = $_FILES["bukti"]["name"];
+				if (move_uploaded_file($_FILES["bukti"]["tmp_name"], $target_path)) {
+					$fileBukti = $newName;
 					$nim = $_SESSION['nim'];
 					$jumlah_pembayaran = $_POST['jumlah_pembayaran'];
 					$data = mysqli_query($conn,"INSERT INTO history_pembayaran (nim, jumlah_pembayaran, jenis_pembayaran, status,bukti_pembayaran) VALUES ('$nim','$jumlah_pembayaran','Transfer','Pending','$fileBukti')");

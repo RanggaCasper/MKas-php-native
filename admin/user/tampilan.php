@@ -70,7 +70,7 @@
 		              		<td><?php echo $dataViewUser['nim']; ?></td>
 		              		<td><?php echo $dataViewUser['role']; ?></td>
 		              		<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $dataViewUser['id_user']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-		              			<a href="hapus.php?id=<?php echo $dataViewUser['id_user']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+		              			<a href="hapus.php?id=<?php echo $dataViewUser['id_user']; ?>" id="hapus" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
 		              		</td>
 		              	</tr>
 		              	<?php } ?>

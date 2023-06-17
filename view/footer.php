@@ -50,6 +50,7 @@
 <script src="<?php echo thisSite(); ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="<?php echo thisSite(); ?>plugins/daterangepicker/daterangepicker.js"></script>
 <script src="<?php echo thisSite(); ?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -63,6 +64,72 @@
       }
     });
     bsCustomFileInput.init();
+    $('#summernote').summernote()
+  });
+</script>
+<script>
+  document.querySelectorAll('[id^="batalkan"]').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      var link = e.currentTarget.getAttribute('href');         
+      Swal.fire({
+        title: 'Apa kah kamu yakin?',
+        text: "Pembayaran akan ditolak, dan tidak bisa di konfirmasi!",
+        icon: 'question',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Tolak!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (result.isConfirmed) {
+              window.location = link;
+          }
+        }
+      })
+    });
+  });
+
+  document.querySelectorAll('[id^="konfirmasi"]').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      var link = e.currentTarget.getAttribute('href');         
+      Swal.fire({
+        title: 'Apa kah kamu yakin?',
+        text: "Pembayaran akan dikonfirmasi, dan tidak bisa di tolak!",
+        icon: 'question',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Konfirmasi!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (result.isConfirmed) {
+              window.location = link;
+          }
+        }
+      })
+    });
+  });
+
+  document.querySelectorAll('[id^="hapus"]').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      var link = e.currentTarget.getAttribute('href');         
+      Swal.fire({
+        title: 'Apa kah kamu yakin?',
+        text: "Data akan dihapus, dan tidak bisa di kembalikan!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (result.isConfirmed) {
+              window.location = link;
+          }
+        }
+      })
+    });
   });
 </script>
 </body>

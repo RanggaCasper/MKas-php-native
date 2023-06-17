@@ -18,6 +18,22 @@
 
   <section class="content">
   	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-12">
+  				<div class="callout callout-success bg-success">
+  					<div class="">
+  						<h5><b>Information</b></h5>
+	            <span>Silahkan lakukan Transfer pada :</span>
+	            <p>Dana : <b>083189944777</b> - A/N M. Irfan Rangganata</p>
+  					</div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+  <section class="content">
+  	<div class="container-fluid">
   	  <div class="row">
   	  	<div class="col-12">
   	  	 <?php showFlashdata(); ?>
@@ -30,17 +46,18 @@
   <section class="content">
   	<div class="container-fluid">
   	  <div class="row">
-  	  	<div class="col-8 mb-3">
-  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-pembayaran"><i class="fa-solid fa-sack-dollar"></i> Bayar Kas</button>
+  	  	<div class="col-sm-12 col-lg-8 mb-3">
+  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-pembayaran"><i class="fa-solid fa-sack-dollar"></i> Tambah Pembayaran</button>
   	  	</div>
-  	  	<div class="col-4 mb-3">
+  	  	<div class="col-sm-12 col-lg-4 mb-3">
   	  		<form method="POST">
 	  	  		<div class="d-flex">
 	  	  			<div class="input-group-prepend">
 		            <span class="input-group-text"><i class="far fa-clock"></i></span>
 		          </div>
 		          <input type="text" name="daterange" class="form-control float-right" id="reservationtime">	
-		          <button type="submit" class="btn btn-primary">Search</button>
+		          <button type="submit" class="btn btn-primary">Filter</button>
+		          <a href="" class="btn btn-danger">Reset</a>
 	  	  		</div>
 	  	  	</form>
   	  	</div>
@@ -117,7 +134,7 @@
 		              					<?php
 		              				}
 		              		?></td>
-		              		<td><span class="badge bg-primary p-2" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
+		              		<td><span class="badge bg-primary p-2" style="cursor: pointer;" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
 		              	</tr>
 		              	<?php } ?>
 		              </tbody>

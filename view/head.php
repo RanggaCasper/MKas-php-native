@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="<?php echo thisSite(); ?>plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

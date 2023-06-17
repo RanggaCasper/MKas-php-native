@@ -40,7 +40,8 @@
 		            <span class="input-group-text"><i class="far fa-clock"></i></span>
 		          </div>
 		          <input type="text" name="daterange" class="form-control float-right" id="reservationtime">	
-		          <button type="submit" class="btn btn-primary">Search</button>
+		          <button type="submit" class="btn btn-primary">Filter</button>
+		          <a href="" class="btn btn-danger">Reset</a>
 	  	  		</div>
 	  	  	</form>
   	  	</div>
@@ -117,13 +118,13 @@
 		              					<?php
 		              				}
 		              		?></td>
-		              		<td><span class="badge bg-primary p-2" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
+		              		<td><span class="badge bg-primary p-2" style="cursor: pointer;" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
 		              		<td>
 		              			<?php 
 		              			if ($dataViewPembayaran['status']=='Pending') {
 		              				?>
-		              				<a href="konfirmasi.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" class="badge bg-primary p-2" style="padding: 4px;">Konfirmasi</a>
-		              				<a href="batalkan.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" class="badge bg-danger p-2" style="padding: 4px;">Batalkan</a>
+		              				<a href="konfirmasi.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" id="konfirmasi" class="badge bg-primary p-2" style="padding: 4px;">Konfirmasi</a>
+		              				<a href="batalkan.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" id="batalkan" class="badge bg-danger p-2" style="padding: 4px;">Tolak</a>
 		              				<?php
 		              			}
 		              			?>
@@ -161,9 +162,9 @@
 	            	$queryNim = mysqli_query($conn,"SELECT * FROM user WHERE role = 'user'");
 	            	while ($dataNim = mysqli_fetch_array($queryNim)) {
 	            	?>
-								<option value="<?php echo $dataNim['nim']; ?>"><?php echo $dataNim['nim'] ." - ". $dataNim['username']; ?></option>
-								<?php } ?>
-							</select>
+						<option value="<?php echo $dataNim['nim']; ?>"><?php echo $dataNim['nim'] ." - ". $dataNim['username']; ?></option>
+						<?php } ?>
+					</select>
 	          </div>
 	          <div class="form-group">
 	            <label for="exampleInputPassword1">Jumlah Pembayaran</label>
