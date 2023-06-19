@@ -6,3 +6,5 @@ profile/*.jpg
 profile/*.png
 profile/*.jpeg
 profile/*.gif
+*.zip
+*.rar

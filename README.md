@@ -1,5 +1,5 @@
 # System Requiment
-Need PHP Version 7.4.22
+- PHP Version 7.4++
 
 # Demo
 - https://mkas.casperproject.masuk.id/

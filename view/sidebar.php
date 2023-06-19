@@ -69,8 +69,7 @@
               </p>
             </a>
           </li>
-          <?php $subMenu++; } ?>
-          <?php $menu++; } ?>
+          <?php }} ?>
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
            <a href="<?php echo thisSite().$_SESSION['role']."/profile"; ?>" class="nav-link">
