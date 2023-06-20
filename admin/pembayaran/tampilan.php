@@ -120,7 +120,7 @@
 		              		<td><span class="badge bg-primary p-2" style="cursor: pointer;" data-toggle="modal" data-target="#modalBukti-<?php echo $dataViewPembayaran['id_kas']; ?>">Check Bukti Pembayaran</span></td>
 		              		<td>
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $dataViewPembayaran['id_kas']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-		              			<a href="hapus.php?id=<?php echo $dataViewUser['id_user']; ?>" id="hapus" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+		              			<a href="hapus.php?id=<?php echo $dataViewPembayaran['id_kas']; ?>" id="hapus" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
 		              		</td>
 		              	</tr>
 		              	<?php } ?>
