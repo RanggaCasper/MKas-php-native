@@ -215,7 +215,7 @@ while ($dataModalUpdate = mysqli_fetch_array($queryModalUpdate)) {
 	      <form action="update.php" method="POST">
 	      		<div class="form-group">
 	            <label for="exampleInputEmail1">ID Pembayaran</label>
-	            <input name="id_user" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $dataModalUpdate['id_kas']; ?>" readonly>
+	            <input name="id_kas" type="text" class="form-control" id="exampleInputEmail1" value="<?php echo $dataModalUpdate['id_kas']; ?>" readonly>
 	          </div>
 	          <div class="form-group">
 	            <label for="exampleInputEmail1">NIM</label>
