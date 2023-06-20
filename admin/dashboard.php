@@ -44,7 +44,7 @@
             <div class="icon">
               <i class="fa-solid fa-money-bill-wave"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo thisSite(); ?>admin/pembayaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -60,7 +60,7 @@
             <div class="icon">
               <i class="fa-solid fa-money-bill-trend-up"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo thisSite(); ?>admin/pengeluaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -71,12 +71,12 @@
               echo mysqli_num_rows($queryUser);
               ?></h3>
 
-              <p>Jumlah User</p>
+              <p>Jumlah Anggota</p>
             </div>
             <div class="icon">
               <i class="fa-solid fa-user-group"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo thisSite(); ?>admin/user" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -92,7 +92,7 @@
             <div class="icon">
               <i class="fa-solid fa-user-tie"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo thisSite(); ?>admin/user" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>

@@ -76,7 +76,7 @@
             <div class="icon">
               <i class="fa-solid fa-user-group"></i>
             </div>
-            <a href="<?php echo thisSite(); ?>bendahara/bayarKas/" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo thisSite(); ?>bendahara/listAnggota/" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
