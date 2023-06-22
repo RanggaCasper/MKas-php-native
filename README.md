@@ -8,8 +8,8 @@
 
 # Admin
 - CRUD User
-- RUD Pembayaran (Proses)
-- RUD Pengeluaran (Proses)
+- Update, Delete Pembayaran
+- Update, Delete Pengeluaran (Proses)
 - Website Management (Proses)
 - Change Profile
 
