@@ -1,5 +1,5 @@
 <?php
-$title = "MKas - Dashboard Admin";
+$title = "MKas - Bayar Kas";
 require_once "../../inc/config.php";
 require_once "../../inc/session.php";
 isUser();
