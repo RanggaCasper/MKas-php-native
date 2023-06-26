@@ -9,7 +9,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo thisSite(); ?>">Admin</a></li>
-            <li class="breadcrumb-item active">User</li>
+            <li class="breadcrumb-item active">Informasi Pembayaran</li>
           </ol>
         </div>
       </div>
