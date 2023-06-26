@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Infomasi Anggota</h1>
+          <h1 class="m-0">Informasi Pengguna</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
   	<div class="container-fluid">
   	  <div class="row">
   	  	<div class="col-12 mb-3">
-  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-tambah"><i class="fa-solid fa-user-plus"></i> Tambah User</button>
+  	  	  <button class="btn btn-success" data-toggle="modal" data-target="#modal-tambah"><i class="fa-solid fa-user-plus"></i> Tambah Pengguna</button>
   	  	</div>
 	  </div>
   	</div>
@@ -43,7 +43,7 @@
 	      	<div class="col-12">
 		        <div class="card">
 		          <div class="card-header">
-		            <h3 class="card-title">Data Anggota</h3>
+		            <h3 class="card-title">Data Pengguna</h3>
 		          </div>
 		          <!-- /.card-header -->
 		          <div class="card-body">
@@ -91,7 +91,7 @@
 	<div class="modal-dialog">
 	  <div class="modal-content">
 	    <div class="modal-header">
-	      <h4 class="modal-title">Tambah User</h4>
+	      <h4 class="modal-title">Tambah Pengguna</h4>
 	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	        <span aria-hidden="true">&times;</span>
 	      </button>
@@ -136,7 +136,7 @@ while ($dataModalUser = mysqli_fetch_array($queryModalUser)) {
 	<div class="modal-dialog">
 	  <div class="modal-content">
 	    <div class="modal-header">
-	      <h4 class="modal-title">Update User</h4>
+	      <h4 class="modal-title">Update Pengguna</h4>
 	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	        <span aria-hidden="true">&times;</span>
 	      </button>

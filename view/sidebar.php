@@ -62,11 +62,28 @@
               while ($subMenu = mysqli_fetch_array($querySubMenu)) {
             ?>
           <li class="nav-item">
-            <a href="<?php echo site_url($subMenu['url']); ?>" class="nav-link">
+            <?php
+            $halamanAktif = $_SERVER['PHP_SELF'];
+            $halamanAktif = str_replace('/mkas/', '', $halamanAktif);
+            $halamanAktif = str_replace('/index.php', '', $halamanAktif);
+            $halamanAktif;
+            ?>
+            <a href="<?php echo site_url($subMenu['url']); ?>" class="nav-link <?php if ($subMenu['url']==$halamanAktif) {
+              echo "active";
+            } ?>">
               <i class="nav-icon <?php echo $subMenu['icon']; ?>"></i>
               <p>
-                <?= $subMenu['title']; ?>
+                <?php echo $subMenu['title']; ?>
               </p>
+              <?php
+              if ($subMenu['url']=="bendahara/bayarKas") {
+                $queryPending = mysqli_query($conn, "SELECT * FROM history_pembayaran WHERE status='Pending'");
+                $dataPending = mysqli_num_rows($queryPending);
+                if($dataPending > 0){
+                  echo '<span class="badge badge-warning right">'.$dataPending.'</span>';
+                }
+              }
+              ?>
             </a>
           </li>
           <?php }} ?>

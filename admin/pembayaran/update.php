@@ -1,22 +1,23 @@
 <?php
-require_once "../../inc/config.php";
-if (isset($_GET['id'])) {
-	$id = $_GET['id'];
 
-	$delete = mysqli_query($conn, "DELETE FROM user WHERE id_user=$id");
+if ($_POST) {
+	require_once "../../inc/config.php";
+	$id = $_POST['id_kas'];
+	$nim = $_POST['nim'];
+	$data = mysqli_query($conn, "UPDATE history_pembayaran SET nim='$nim' WHERE id_kas='$id'");
 
-	if ($delete) {
+	if ($data) {
 		session_start();
 		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<i class="fa-regular fa-circle-check"></i></i> Data berhasil dihapus.
+		<i class="fa-regular fa-circle-check"></i></i> Data berhasil diupdate.
 		</div>';
-		header("Location: index.php");
+		header("Location: ./");
 	}else{
 		session_start();
 		$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<i class="fa-regular fa-circle-check"></i></i> Data gagal dihapus.
+		<i class="fa-regular fa-circle-check"></i></i> Data gagal diupdate.
 		</div>';
 		header("Location: ./");
 	}
@@ -24,9 +25,9 @@ if (isset($_GET['id'])) {
 	session_start();
 	$_SESSION['flash'] = '<div class="alert alert-warning alert-dismissible">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-	<i class="icon fas fa-ban"></i> Tidak ada method <b>GET</b>.
+	<i class="icon fas fa-ban"></i> Tidak ada method <b>POST</b>.
 	</div>';
-	header("Location: index.php");
+	header("Location: ./");
 }
 
 ?>
