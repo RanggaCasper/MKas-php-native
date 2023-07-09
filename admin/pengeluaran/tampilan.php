@@ -61,7 +61,7 @@
 		              		<td>Rp. <?php echo number_format($dataViewPengeluaran['pengeluaran']); ?></td>
 		              		<td><span class="badge bg-primary p-2" style="cursor: pointer;" data-toggle="modal" data-target="#modalDesc-<?php echo $dataViewPengeluaran['id_pengeluaran']; ?>">Detail</span></td>
 		              		<td><?php echo $dataViewPengeluaran['time']; ?></td>
-                            <td>
+                      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $dataViewPengeluaran['id_pengeluaran']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
 		              			<a href="hapus.php?id=<?php echo $dataViewPengeluaran['id_pengeluaran']; ?>" id="hapus" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
 		              	</tr>
 		              	<?php } ?>
@@ -81,6 +81,7 @@
 $queryModalPengeluaran = mysqli_query($conn, "SELECT * FROM history_pengeluaran");
 while ($dataModalDesc = mysqli_fetch_array($queryModalPengeluaran)) {
 ?>
+<!-- Detail -->
 <div class="modal fade" id="modalDesc-<?php echo $dataModalDesc['id_pengeluaran']; ?>">
 	<div class="modal-dialog modal-dialog-scrollable">
 	  <div class="modal-content">
@@ -92,6 +93,38 @@ while ($dataModalDesc = mysqli_fetch_array($queryModalPengeluaran)) {
 	    </div>
 	    <div class="modal-body">
 	      <span><?php echo $dataModalDesc['deskripsi']; ?></span>
+	    </div>
+	  </div>
+	</div>
+</div>
+<!-- Pengeluaran -->
+<div class="modal fade" id="modalUpdate-<?php echo $dataModalDesc['id_pengeluaran']; ?>">
+	<div class="modal-dialog modal-dialog-scrollable">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <h4 class="modal-title">Detail Deskripsi</h4>
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <div class="modal-body">
+	      <div class="modal-body">
+		      <form action="update.php" method="POST">
+		          <div class="form-group">
+		            <label for="exampleInputEmail1">ID</label>
+		            <input type="number" name="id" value="<?php echo $dataModalDesc['id_pengeluaran']; ?>" class="form-control" readonly>
+		          </div>
+		          <div class="form-group">
+		          	<label>Deskripsi</label>
+		          	<textarea id="summernote-<?php echo $dataModalDesc['id_pengeluaran']; ?>" name="deskripsi"><?php echo $dataModalDesc['deskripsi']; ?>
+	              </textarea>
+		          </div>
+		          <div class="d-flex justify-content-between">
+				    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				    		<button type="submit" class="btn btn-primary">Submit</button>
+				  		</div>
+			  	</form>
+		    </div>
 	    </div>
 	  </div>
 	</div>

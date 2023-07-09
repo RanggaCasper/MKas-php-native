@@ -6,7 +6,9 @@ if ($_POST) {
 	$nim = $_POST['nim'];
 	$role = $_POST['role'];
 	$data = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+	$dataNim = mysqli_query($conn, "SELECT * FROM user WHERE nim = '$nim'");
 	$cek = mysqli_num_rows($data);
+	$cek2 = mysqli_num_rows($dataNim);
 
 	if ($cek > 0) {
 		session_start();
@@ -16,13 +18,23 @@ if ($_POST) {
 		</div>';
 		header("Location: ./");
 	}else{
-		mysqli_query($conn, "INSERT INTO user (username, password, nim, role) VALUES ('$username','$password','$nim','$role')");
-		session_start();
-		$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<i class="fa-regular fa-circle-check"></i></i> Data berhasil ditambahkan.
-		</div>';
-		header("Location: ./");
+		if ($cek2 > 0) {
+			session_start();
+			$_SESSION['flash'] = '<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<i class="icon fas fa-ban"></i> Maaf, NIM <b>'.$nim.'</b> sudah terdaftar.
+			</div>';
+			header("Location: ./");
+		}else{
+			
+			mysqli_query($conn, "INSERT INTO user (username, password, nim, role) VALUES ('$username','$password','$nim','$role')");
+			session_start();
+			$_SESSION['flash'] = '<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<i class="fa-regular fa-circle-check"></i></i> Data berhasil ditambahkan.
+			</div>';
+			header("Location: ./");
+		}
 	}
 }else{
 	session_start();

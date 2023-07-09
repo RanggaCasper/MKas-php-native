@@ -68,6 +68,19 @@
   });
 </script>
 <script>
+  $(document).ready(function() {
+    bsCustomFileInput.init();
+    <?php
+    $queryModalPengeluaran = mysqli_query($conn, "SELECT * FROM history_pengeluaran");
+    while ($dataModalDesc = mysqli_fetch_array($queryModalPengeluaran)) {
+      ?>
+      $('#summernote-<?php echo $dataModalDesc['id_pengeluaran']; ?>').summernote();
+      <?php
+    }
+    ?>
+  });
+</script>
+<script>
   document.querySelectorAll('[id^="batalkan"]').forEach(item => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
