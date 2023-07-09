@@ -18,8 +18,8 @@
 # Admin
 - CRUD User
 - Update, Delete Pembayaran
-- Update, Delete Pengeluaran (Proses)
-- Website Management (Proses)
+- Update, Delete Pengeluaran
+- Website Management
 - Change Profile
 
 # Bendahara
